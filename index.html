@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death: A Enciclopédia do Metal Técnico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;700;900&family=Metamorphous&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #aa0000;
+            --text-color: #e5e5e5;
+            --accent-color: #ff4d00;
+            --bg-dark: #050505;
+            --bg-card: #121212;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: auto;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/EKUhygWDckZwNTRY.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 6px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .hero-logo {
+            max-width: 400px;
+            width: 90%;
+            filter: drop-shadow(0 0 25px rgba(170, 0, 0, 0.8));
+            animation: fadeInScale 1.5s ease-out;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hero h1 {
+            font-family: 'Metamorphous', serif;
+            font-size: 3.2rem;
+            color: var(--secondary-color);
+            margin: 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            text-shadow: 0 0 20px #000;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #aaa;
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+
+        /* Sticky Nav */
+        nav {
+            background-color: #000;
+            padding: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 25px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            letter-spacing: 4px;
+        }
+
+        /* Main Layout */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section {
+            margin-bottom: 120px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 50px;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 15px auto;
+        }
+
+        /* Biografias Detalhadas */
+        .member-detail {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 80px;
+            align-items: start;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+        }
+
+        .member-img-box img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .member-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .member-info p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        .tech-list {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .tech-list h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Discografia Enciclopédica */
+        .album-full-detail {
+            margin-bottom: 100px;
+        }
+
+        .album-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .album-header img {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+        }
+
+        .album-title-box h3 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin: 0;
+        }
+
+        .album-title-box .year {
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        .album-content {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .album-content h4 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px;
+            text-transform: uppercase;
+        }
+
+        .lineup-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        .lineup-member {
+            background: #222;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #eee;
+        }
+
+        /* Blockquote */
+        blockquote {
+            font-family: 'Metamorphous', serif;
+            font-size: 2rem;
+            text-align: center;
+            padding: 100px 50px;
+            margin: 80px 0;
+            background: linear-gradient(135deg, #1a0000, #000);
+            border-radius: 30px;
+            color: #fff;
+            border: 2px solid var(--secondary-color);
+        }
+
+        footer {
+            background: #000;
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 10px solid var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .member-detail { grid-template-columns: 1fr; }
+            .album-header { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/gpyCWYtSoqHLpoyy.jpg" alt="Death Logo" class="hero-logo">
+        <h1>Morte e Legado</h1>
+        <p>A jornada completa da banda que definiu o Metal Técnico e Progressivo.</p>
+    </div>
+
+    <nav>
+        <a href="#biografias">Os Arquitetos</a>
+        <a href="#discografia">A Obra</a>
+        <a href="#revolucao">A Revolução</a>
+    </nav>
+
+    <main>
+        <!-- Seção de Membros -->
+        <section id="biografias">
+            <h2 class="section-title">Os Arquitetos do Som</h2>
+            
+            <!-- Chuck Schuldiner -->
+            <div class="member-detail">
+                <div class="member-img-box">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/uheHzNmRYrYLmcOG.jpg" alt="Chuck Schuldiner">
+                </div>
+                <div class="member-info">
+                    <h3>Chuck Schuldiner</h3>
+                    <p>Conhecido como o "Pai do Death Metal", Chuck não era apenas um músico; ele era um filósofo da guitarra. Ele revolucionou o metal extremo ao trazer uma sensibilidade melódica inspirada no Iron Maiden e na música clássica para um gênero que antes era puramente agressivo.</p>
+                    <p>Sua técnica de palhetada era cirúrgica, e sua habilidade de compor solos que "cantavam" mudou o paradigma do metal. Chuck foi um dos primeiros a usar o <strong>D Tuning</strong> (afinação em Ré) para ganhar peso sem perder a clareza das notas.</p>
+                    <div class="tech-list">
+                        <h4>Inovações Técnicas:</h4>
+                        <ul>
+                            <li>Uso extensivo de escalas Menores Harmônicas e Frígias.</li>
+                            <li>Popularização do "Death Grunt" controlado e articulado.</li>
+                            <li>Integração de harmonias duplas de guitarra no metal extremo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Steve DiGiorgio -->
+            <div class="member-detail">
+                <div class="member-img-box">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/wCTTzEbFuAqkcrCH.jpeg" alt="Steve DiGiorgio">
+                </div>
+                <div class="member-info">
+                    <h3>Steve DiGiorgio</h3>
+                    <p>Steve é possivelmente o baixista mais influente do metal extremo. Ele destruiu a ideia de que o baixo no metal deveria apenas seguir a guitarra. Ao introduzir o <strong>fretless bass</strong> (baixo sem trastes), ele trouxe uma sonoridade fluida e elástica que permitiu linhas de baixo solistas e complexas.</p>
+                    <p>Sua participação nos álbuns <em>Human</em> e <em>Individual Thought Patterns</em> é lendária, onde seu baixo muitas vezes assume o papel principal, duelando com as guitarras em termos de técnica e melodia.</p>
+                    <div class="tech-list">
+                        <h4>Inovações Técnicas:</h4>
+                        <ul>
+                            <li>Pioneiro do baixo fretless no Death Metal.</li>
+                            <li>Uso de técnicas de Jazz Fusion e Slap em contextos de alta velocidade.</li>
+                            <li>Uso de baixos de 5 e 6 cordas para expandir o alcance tonal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gene Hoglan -->
+            <div class="member-detail">
+                <div class="member-img-box">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/CUdkDLdBKUOkNXcc.jpg" alt="Gene Hoglan">
+                </div>
+                <div class="member-info">
+                    <h3>Gene Hoglan</h3>
+                    <p>Apelidado de "The Atomic Clock" (O Relógio Atômico), Gene Hoglan redefiniu a bateria no metal. Ele trouxe uma precisão de máquina aliada a uma criatividade orgânica. Sua habilidade de manter ritmos extremamente complexos e sincopados enquanto tocava bumbo duplo em velocidades absurdas tornou-se o padrão ouro para bateristas de metal técnico.</p>
+                    <p>No álbum <em>Individual Thought Patterns</em>, ele usou pratos e percussões de formas não convencionais, criando uma textura rítmica que era tão interessante quanto a melodia.</p>
+                    <div class="tech-list">
+                        <h4>Inovações Técnicas:</h4>
+                        <ul>
+                            <li>Precisão milimétrica em tempos extremamente rápidos.</li>
+                            <li>Uso de percussão abstrata e pratos "Hoglanized".</li>
+                            <li>Padrões de bumbo duplo sincopados e polirrítmicos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Discografia -->
+        <section id="discografia">
+            <h2 class="section-title">A Obra: Álbum por Álbum</h2>
+
+            <!-- Scream Bloody Gore -->
+            <div class="album-full-detail">
+                <div class="album-header">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/TfOAVleZGsMfYMDz.jpg" alt="Scream Bloody Gore">
+                    <div class="album-title-box">
+                        <h3>Scream Bloody Gore</h3>
+                        <span class="year">1987 - O Marco Zero</span>
+                    </div>
+                </div>
+                <div class="album-content">
+                    <h4>O Impacto:</h4>
+                    <p>Considerado por muitos como o primeiro álbum real de Death Metal. Ele estabeleceu as bases do gênero: vocais guturais, riffs cromáticos e uma obsessão por temas de horror. É um álbum cru, gravado quase inteiramente por Chuck e Chris Reifert. Ele capturou a energia primitiva do underground da Flórida.</p>
+                    <h4>Curiosidade:</h4>
+                    <p>Chuck tocou guitarra, baixo e fez os vocais, mostrando desde cedo que o Death era o seu veículo de expressão pessoal.</p>
+                    <div class="lineup-list">
+                        <span class="lineup-member">Chuck Schuldiner (Voc/Gtr/Bass)</span>
+                        <span class="lineup-member">Chris Reifert (Bateria)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leprosy -->
+            <div class="album-full-detail">
+                <div class="album-header">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/BDHdljpuBBqNztNP.jpg" alt="Leprosy">
+                    <div class="album-title-box">
+                        <h3>Leprosy</h3>
+                        <span class="year">1988 - O Refinamento da Brutalidade</span>
+                    </div>
+                </div>
+                <div class="album-content">
+                    <h4>O Impacto:</h4>
+                    <p>Leprosy trouxe uma produção mais limpa e riffs que se tornaram hinos do metal, como "Pull the Plug". Aqui, a banda começou a experimentar com estruturas de músicas um pouco mais complexas, embora ainda mantivesse o foco na agressividade thrashy.</p>
+                    <div class="lineup-list">
+                        <span class="lineup-member">Chuck Schuldiner (Voc/Gtr)</span>
+                        <span class="lineup-member">Rick Rozz (Gtr)</span>
+                        <span class="lineup-member">Terry Butler (Bass)</span>
+                        <span class="lineup-member">Bill Andrews (Bateria)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spiritual Healing -->
+            <div class="album-full-detail">
+                <div class="album-header">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/rsvsgchZkeThwrLJ.jpg" alt="Spiritual Healing">
+                    <div class="album-title-box">
+                        <h3>Spiritual Healing</h3>
+                        <span class="year">1990 - A Transição Intelectual</span>
+                    </div>
+                </div>
+                <div class="album-content">
+                    <h4>O Impacto:</h4>
+                    <p>Este álbum marca a morte dos temas de gore. Chuck começou a escrever sobre religião, ética médica e problemas sociais. Musicalmente, a entrada de James Murphy trouxe solos de guitarra extremamente técnicos e melódicos, sinalizando o caminho para o metal progressivo.</p>
+                    <div class="lineup-list">
+                        <span class="lineup-member">Chuck Schuldiner (Voc/Gtr)</span>
+                        <span class="lineup-member">James Murphy (Gtr)</span>
+                        <span class="lineup-member">Terry Butler (Bass)</span>
+                        <span class="lineup-member">Bill Andrews (Bateria)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Human -->
+            <div class="album-full-detail">
+                <div class="album-header">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/qwiYtnqSDJRHqoHy.jpg" alt="Human">
+                    <div class="album-title-box">
+                        <h3>Human</h3>
+                        <span class="year">1991 - A Obra-Prima Técnica</span>
+                    </div>
+                </div>
+                <div class="album-content">
+                    <h4>O Impacto:</h4>
+                    <p>Considerado um dos álbuns mais importantes da história do metal. Com músicos do Cynic e Steve DiGiorgio, o Death atingiu um nível de virtuosismo nunca antes visto. "Flattening of Emotions" e "Lack of Comprehension" são marcos do Technical Death Metal. O álbum é denso, complexo e emocionalmente carregado.</p>
+                    <div class="lineup-list">
+                        <span class="lineup-member">Chuck Schuldiner (Voc/Gtr)</span>
+                        <span class="lineup-member">Paul Masvidal (Gtr)</span>
+                        <span class="lineup-member">Steve DiGiorgio (Bass)</span>
+                        <span class="lineup-member">Sean Reinert (Bateria)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Individual Thought Patterns -->
+            <div class="album-full-detail">
+                <div class="album-header">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/xZsxzDYIXwIEBUUx.jpg" alt="Individual Thought Patterns">
+                    <div class="album-title-box">
+                        <h3>Individual Thought Patterns</h3>
+                        <span class="year">1993 - O Ápice da Virtuosidade</span>
+                    </div>
+                </div>
+                <div class="album-content">
+                    <h4>O Impacto:</h4>
+                    <p>Com a entrada de Gene Hoglan e Andy LaRocque (King Diamond), este álbum é um duelo constante de talentos. É possivelmente o álbum mais rápido e tecnicamente denso da banda. As letras tornaram-se ainda mais pessoais e cínicas sobre a indústria musical e as relações humanas.</p>
+                    <div class="lineup-list">
+                        <span class="lineup-member">Chuck Schuldiner (Voc/Gtr)</span>
+                        <span class="lineup-member">Andy LaRocque (Gtr)</span>
+                        <span class="lineup-member">Steve DiGiorgio (Bass)</span>
+                        <span class="lineup-member">Gene Hoglan (Bateria)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Symbolic -->
+            <div class="album-full-detail">
+                <div class="album-header">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/AIVlAiWDgqVKOCyp.jpg" alt="Symbolic">
+                    <div class="album-title-box">
+                        <h3>Symbolic</h3>
+                        <span class="year">1995 - A Perfeição Melódica</span>
+                    </div>
+                </div>
+                <div class="album-content">
+                    <h4>O Impacto:</h4>
+                    <p>Para muitos fãs, o melhor álbum. Ele equilibra perfeitamente a brutalidade com melodias belíssimas e progressivas. A produção é cristalina, e as composições são maduras. Faixas como "Crystal Mountain" e "Symbolic" mostram um Chuck no auge de sua capacidade de composição.</p>
+                    <div class="lineup-list">
+                        <span class="lineup-member">Chuck Schuldiner (Voc/Gtr)</span>
+                        <span class="lineup-member">Bobby Koelble (Gtr)</span>
+                        <span class="lineup-member">Kelly Conlon (Bass)</span>
+                        <span class="lineup-member">Gene Hoglan (Bateria)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Sound of Perseverance -->
+            <div class="album-full-detail">
+                <div class="album-header">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663759348891/RdBXGDiqEGKlmUSt.jpg" alt="The Sound of Perseverance">
+                    <div class="album-title-box">
+                        <h3>The Sound of Perseverance</h3>
+                        <span class="year">1998 - O Canto do Cisne</span>
+                    </div>
+                </div>
+                <div class="album-content">
+                    <h4>O Impacto:</h4>
+                    <p>O último álbum do Death. Ele é extremamente progressivo e técnico, com vocais muito mais agudos e rasgados. O álbum é uma demonstração de força e resiliência, terminando com um cover magistral de "Painkiller" do Judas Priest. Foi o testamento final de um gênio que se recusava a parar.</p>
+                    <div class="lineup-list">
+                        <span class="lineup-member">Chuck Schuldiner (Voc/Gtr)</span>
+                        <span class="lineup-member">Shannon Hamm (Gtr)</span>
+                        <span class="lineup-member">Scott Clendenin (Bass)</span>
+                        <span class="lineup-member">Richard Christy (Bateria)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <blockquote>
+            "Mantenha o metal vivo. Mantenha a música viva. A vida é uma jornada curta, faça valer a pena."<br>
+            <small>— Chuck Schuldiner</small>
+        </blockquote>
+    </main>
+
+    <footer>
+        <p>Desenvolvido como um tributo definitivo ao legado do Death.<br>
+        &copy; 2026 - A Enciclopédia Chuck Schuldiner.</p>
+    </footer>
+
+</body>
+</html>
